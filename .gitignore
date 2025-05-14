@@ -1,6 +1,7 @@
 # Entorno virtual
 venv/
 env/
+webapp/
 
 # Archivos de configuración sensibles
 .env
