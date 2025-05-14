@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'app_clients',
     'employees_app',
     'app_coordinators',
+    'app_reservation',
 ]
 
 MIDDLEWARE = [
