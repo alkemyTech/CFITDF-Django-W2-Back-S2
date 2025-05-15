@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Clients
-# Register your models here.
+
+
 admin.site.register(Clients)
 class CoordinatorAdmin(admin.ModelAdmin):
     search_fields = ['first_name', 'last_name', 'email']
