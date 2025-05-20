@@ -19,5 +19,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-     path('', include('employees_app.urls')),  # Esto hará que tus URLs de empleados sean accesibles desde la raíz
+    path('', include('employees_app.urls')),  # Esto hará que tus URLs de empleados sean accesibles desde la raíz
+    path('services/', include('app_services.urls', namespace='app_services')),  
 ]

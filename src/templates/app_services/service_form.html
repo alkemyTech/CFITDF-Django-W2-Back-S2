@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>
+    {% if object %}Editar Servicio{% else %}Crear Servicio{% endif %}
+  </h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn">Guardar</button>
+    <a href="{% url 'app_services:service_create' %}" class="btn-secondary">Cancelar</a>
+  </form>
+{% endblock %}

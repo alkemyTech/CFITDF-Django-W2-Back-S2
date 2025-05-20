@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>{{ service.name }}</h1>
+  <p>{{ service.description }}</p>
+  <p>Precio: ${{ service.price }}</p>
+  <p>Activo: {{ service.active|yesno:"Sí,No" }}</p>
+  <a href="#">Editar</a>
+  <a href="#">Eliminar</a>
+  <a href="#">Volver al listado</a>
+{% endblock %}
