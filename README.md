@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 # Instrucciones para levantar el proyecto Django
 
 ## 1. Clonar el repositorio
