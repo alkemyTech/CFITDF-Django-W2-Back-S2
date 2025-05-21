@@ -24,6 +24,10 @@ class ServiceListView(ListView):
     paginate_by = 10 # Number of services per page
     ordering = ['name']
 
+    # get_queryset method to filter active services
+    def get_queryset(self):
+        return Service.objects.filter(active=True).order_by('-created_at')
+
 
 class ServiceUpdateView(UpdateView):
     model = Service
@@ -31,3 +35,15 @@ class ServiceUpdateView(UpdateView):
     fields = ['name', 'description', 'price']
     success_url = reverse_lazy('app_services:services_list') 
     context_object_name = 'service'
+
+
+# Logic to handle the deletion of a service
+class ServiceDesactivateView(UpdateView):
+    model = Service
+    fields = [] # No fields to display
+    template_name = 'app_services/service_desactivate.html'
+    success_url = reverse_lazy('app_services:services_list') 
+    
+    def form_valid(self, form):
+        form.instance.active = False
+        return super().form_valid(form)
