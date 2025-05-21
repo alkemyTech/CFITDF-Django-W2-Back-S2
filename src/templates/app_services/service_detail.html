@@ -5,6 +5,6 @@
   <p>Precio: ${{ service.price }}</p>
   <p>Activo: {{ service.active|yesno:"Sí,No" }}</p>
   <a href="{% url "app_services:service_update" service.pk%}">Editar</a>
-  <a href="{% url "app_services:service_desactivate" service.pk%}">Eliminar</a>
+  <a href="#">Eliminar</a>
   <a href="{% url "app_services:services_list" %}">Volver al listado</a>
 {% endblock %}
