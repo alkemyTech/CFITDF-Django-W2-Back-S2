@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Servicios</h1>
+  <a href="{% url 'app_services:service_create' %}" class="btn">Nuevo Servicio</a>
+  <ul>
+    {% for svc in services %}
+      <li>
+        <a href="{% url 'app_services:service_detail' svc.pk %}">
+          {{ svc.name }} — ${{ svc.price }}
+        </a>
+      </li>
+    {% empty %}
+      <li>No hay servicios disponibles.</li>
+    {% endfor %}
+  </ul>
+  {% if is_paginated %}
+    <div class="pagination">
+      {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}">« Anterior</a>
+      {% endif %}
+      <span>Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span>
+      {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">Siguiente »</a>
+      {% endif %}
+    </div>
+  {% endif %}
+{% endblock %}
