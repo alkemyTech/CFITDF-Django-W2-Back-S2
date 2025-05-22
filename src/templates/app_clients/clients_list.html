@@ -15,7 +15,9 @@
                 <td>{{client.id}}</td>
                 <td>{{client.first_name}}</td>
                 <td>{{client.last_name}}</td>
-                <td>{{client.active}}</td>
+                <td>{{client.active|yesno:"Sí,No"}}</td>
+                <td><a href="{% url 'app_clients:clients_delete' client.id %}">Delete</a></td>
+                <td><a href="{% url 'app_clients:clients_detail' client.id %}">Detail</a></td>
             {% endfor %}
         </tbody> 
     </table>
