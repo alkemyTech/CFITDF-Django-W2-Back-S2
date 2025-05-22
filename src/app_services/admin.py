@@ -2,9 +2,9 @@ from django.contrib import admin
 from .models import Service
 
 
-admin.site.register(Service)
+@admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
-    search_fields = ['name']
-    ordering = ['created_at']
-    list_display = ['name', 'description', 'price', 'created_at']
-    list_filter = ['created_at']
+    list_display = ('name', 'price', 'active', 'created_at', 'updated_at')
+    list_filter = ('active', 'created_at')
+    search_fields = ('name', 'description')
+    ordering = ('-created_at',)

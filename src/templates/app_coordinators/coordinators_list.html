@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Lista de Coordinadores</h1>
+  <a href="{% url 'app_coordinators:coordinator_create' %}">Crear nuevo coordinador</a>
+  <ul>
+    {% for coordinator in coordinators %}
+      <li>
+        <a href="{% url 'app_coordinators:coordinator_detail' coordinator.pk %}">
+          {{ coordinator.last_name }}, {{ coordinator.first_name }}
+        </a>
+      </li>
+    {% empty %}
+      <li>No hay coordinadores registrados.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
