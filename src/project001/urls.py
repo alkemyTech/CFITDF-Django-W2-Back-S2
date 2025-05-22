@@ -22,5 +22,6 @@ urlpatterns = [
     path('services/', include('app_services.urls', namespace='app_services')),
     path('clients/', include('app_clients.urls', namespace='app_clients')),
     path('employees/', include('employees_app.urls', namespace='employees_app')),
+    path('coordinators/', include('app_coordinators.urls', namespace='app_coordinators')),
     path('reservation/', include('app_reservation.urls', namespace='app_reservation')),
 ]
