@@ -1,0 +1,7 @@
+<h1>{% if form.instance.pk %}Editar Empleado{% else %}Crear Empleado{% endif %}</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+</form>
+<a href="{% url 'employees_app:employee_list' %}">Volver al listado</a>
