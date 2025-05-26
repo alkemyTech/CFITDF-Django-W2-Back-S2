@@ -1,0 +1,20 @@
+<h1>Lista de Empleados</h1>
+<a href="{% url 'employees_app:employee_create' %}">Crear nuevo empleado</a>
+<table border="1">
+    <tr>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Teléfono</th>
+        <th>Activo</th>
+        <th>Acciones</th>
+    </tr>
+    {% for emp in employees %}
+    <tr>
+        <td>{{ emp.first_name }} {{ emp.last_name }}</td>
+        <td>{{ emp.email }}</td>
+        <td>{{ emp.phone }}</td>
+        <td>{{ emp.is_active }}</td>
+        <td><a href="{% url 'employees_app:employee_update' emp.id %}">Editar</a></td>
+    </tr>
+    {% endfor %}
+</table>
