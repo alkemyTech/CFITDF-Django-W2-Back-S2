@@ -4,4 +4,5 @@
   <p>Email: {{ client.email }}</p>
   <p>Phone: {{ client.phone }}</p>
   <p>Active: {{ client.active|yesno:"Sí,No" }}</p>
+  <a href="{% url 'app_clients:clients_list' %}">Volver al listado</a>
 {% endblock %}

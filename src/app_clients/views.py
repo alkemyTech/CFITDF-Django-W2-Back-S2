@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import CreateView, DetailView, ListView, UpdateView
-from django.urls import reverse_lazy
+from django.http import HttpResponseRedirect
+from django.urls import reverse, reverse_lazy
 from .models import Clients
 
 
@@ -18,7 +19,7 @@ class ClientsDetailView(DetailView):
 
 
 class ClientsListView(ListView):
-    model = Clients
+    queryset = Clients.objects.all().filter(active=True)
     template_name = 'app_clients/clients_list.html'
     context_object_name = 'clients'
     ordering = ['first_name', 'last_name']
@@ -29,3 +30,10 @@ class ClientsUpdateView(UpdateView):
     template_name = 'app_clients/clients_form.html'
     fields = '__all__'
     success_url = reverse_lazy('app_clients:clients_list')
+
+
+def delete_client(request, pk):
+    client_to_delete = get_object_or_404(Clients, pk=pk)
+    client_to_delete.active = not client_to_delete.active
+    client_to_delete.save()
+    return HttpResponseRedirect(reverse('app_clients:clients_list'))
