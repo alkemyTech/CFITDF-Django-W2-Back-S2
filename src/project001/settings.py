@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'employees_app',
     'app_coordinators',
     'app_reservation',
+    'API',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
