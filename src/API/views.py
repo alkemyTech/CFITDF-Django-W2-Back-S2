@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework.generics import ListAPIView
+from rest_framework.generics import ListAPIView, RetrieveAPIView
 from rest_framework import viewsets
 from .serializer import ClientSerializer, CoordinatorSerializer, ReservationSerializer, ServiceSerializer, EmployeeSerializer
 from app_clients.models import Clients
@@ -12,3 +12,14 @@ from employees_app.models import Employee
 class EmployeeListAPIView(ListAPIView):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
+
+
+class ServiceListAPIView(ListAPIView):
+    queryset = Service.objects.all()
+    serializer_class = ServiceSerializer
+
+
+class ServiceDetailAPIView(RetrieveAPIView):
+    queryset = Service.objects.all()
+    serializer_class = ServiceSerializer
+    lookup_field = 'pk'
