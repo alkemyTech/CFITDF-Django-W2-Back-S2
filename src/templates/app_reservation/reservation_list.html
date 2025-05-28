@@ -14,12 +14,18 @@
         {% for reservation in reservations %}
         <tr>
             <td>{{ reservation.id }}</td>
-            <td>{{ reservation.client.first_name }} {{ reservation.client.last_name }}</td>
-            <td>{{ reservation.start_date }}</td>
-            <td>{{ reservation.end_date }}</td>
-            <td>{{ reservation.status }}</td>
+            <td>{{ reservation.client}}</td>
+            <td>{{ reservation.reservation_date }}</td>
+            <td>{{ reservation.service_date }}</td>
+            <td>{{ reservation.service }}</td>
+            <td>{{ reservation.employee }}</td>
+            <td>{{ reservation.coordinator }}</td>
+            {% if reservation.active %}
             <td><a href="{% url 'app_reservation:reservation_delete' reservation.id %}">Delete</a></td>
             <td><a href="{% url 'app_reservation:reservation_detail' reservation.id %}">Detail</a></td>
+            {% else %}
+            <td>Inactive</td>
+            {% endif %}
         </tr>
         {% endfor %}
     </tbody>

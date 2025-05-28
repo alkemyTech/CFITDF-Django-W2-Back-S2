@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import CreateView, ListView, UpdateView, DeleteView
+from django.views.generic import CreateView, ListView, UpdateView, DetailView
 from django.urls import reverse_lazy
 from .models import Reservation
 
@@ -15,8 +15,13 @@ class ReservationListView(ListView):
     model = Reservation
     template_name = 'app_reservation/reservation_list.html'
     context_object_name = 'reservations'
-    ordering = ['-date']
+    ordering = ['-service_date']
     paginate_by = 10
+
+class ReservationDetailView(DetailView):
+    model = Reservation
+    template_name = 'app_reservation/reservation_detail.html'
+    context_object_name = 'reservation'
 
 
 class ReservationUpdateView(UpdateView):

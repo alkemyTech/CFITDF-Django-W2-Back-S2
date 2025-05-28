@@ -3,9 +3,7 @@
 <div class="container">
   <p><strong>ID:</strong> {{ reservation.id }}</p>
   <p>
-    <strong>Cliente:</strong> {{ reservation.client.first_name }} {{
-    reservation.client.last_name }}
-  </p>
+    <strong>Cliente:</strong> {{ reservation.client }}  </p>
   <p><strong>Fecha de Reserva:</strong> {{ reservation.reservation_date }}</p>
   <p><strong>Fecha de Servicio:</strong> {{ reservation.service_date }}</p>
   <p><strong>Servicio:</strong> {{ reservation.service }}</p>
