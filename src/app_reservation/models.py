@@ -12,7 +12,7 @@ class Reservation(models.Model):
     service = models.ForeignKey(Service, on_delete=models.CASCADE, verbose_name="Service")
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE, verbose_name="Employee", related_name='reservations_as_employee')
     coordinator = models.ForeignKey(Coordinator, on_delete=models.CASCADE, verbose_name="Coordinator", related_name='reservations_as_coordinator')
-
+    active = models.BooleanField(default=True, verbose_name="Active")
     def __str__(self):
         return f"Reservation for {self.client} on {self.service_date} - Service: {self.service.name}"
     

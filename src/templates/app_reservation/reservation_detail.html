@@ -1,0 +1,14 @@
+{% extends "base.html" %} {% block content %}
+<h1>Detalle de la Reserva</h1>
+<div class="container">
+  <p><strong>ID:</strong> {{ reservation.id }}</p>
+  <p>
+    <strong>Cliente:</strong> {{ reservation.client }}  </p>
+  <p><strong>Fecha de Reserva:</strong> {{ reservation.reservation_date }}</p>
+  <p><strong>Fecha de Servicio:</strong> {{ reservation.service_date }}</p>
+  <p><strong>Servicio:</strong> {{ reservation.service }}</p>
+  <p><strong>Coordinador:</strong> {{ reservation.employee }}</p>
+  <p><strong>Empleado:</strong> {{ reservation.coordinator }}</p>
+</div>
+<a href="{% url 'app_reservation:reservation_list' %}">Volver al listado</a>
+{% endblock %}

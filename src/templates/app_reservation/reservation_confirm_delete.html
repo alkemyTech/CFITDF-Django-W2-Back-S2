@@ -1,0 +1,8 @@
+{% extends "base.html" %} {% block content %}
+<h2>¿Estás seguro de que deseas dar de baja la reserva?</h2>
+<form method="post">
+  {% csrf_token%}
+  <button type="submit">Confirmar</button>
+  <a href="{% url 'app_reservation:reservation_list' %}">Cancelar</a>
+</form>
+{% endblock %}
