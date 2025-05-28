@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Client</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for reservation in reservations %}
+        <tr>
+            <td>{{ reservation.id }}</td>
+            <td>{{ reservation.client.first_name }} {{ reservation.client.last_name }}</td>
+            <td>{{ reservation.start_date }}</td>
+            <td>{{ reservation.end_date }}</td>
+            <td>{{ reservation.status }}</td>
+            <td><a href="{% url 'app_reservation:reservation_delete' reservation.id %}">Delete</a></td>
+            <td><a href="{% url 'app_reservation:reservation_detail' reservation.id %}">Detail</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+{% endblock %}
