@@ -45,4 +45,6 @@ class ServiceDesactivateView(UpdateView):
     
     def form_valid(self, form):
         form.instance.active = False
+        form.instance.save()
         return super().form_valid(form)
+    
