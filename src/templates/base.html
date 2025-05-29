@@ -14,11 +14,11 @@
     <!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
   </head>
   <body>
-    {% extends "header.html" %}
+    {% include "header.html" %}
     <main>
       <div class="container">{% block content %} {% endblock %}</div>
     </main>
-    {% extends "footer.html" %}
+    {% include "footer.html" %}
   </body>
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
