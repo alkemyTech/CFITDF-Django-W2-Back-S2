@@ -1,3 +1,4 @@
+{% extends "base.html"%}
 <h1>{% if form.instance.pk %}Editar Empleado{% else %}Crear Empleado{% endif %}</h1>
 <form method="post">
     {% csrf_token %}
