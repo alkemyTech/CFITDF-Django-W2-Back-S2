@@ -20,58 +20,48 @@
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="{% url 'app_services:services_list' %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Servicios
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="{% url 'app_services:services_list' %}">Listado de Servicios</a></li>
+            <li><a class="dropdown-item" href="{% url 'app_services:service_create' %}">Nuevo Servicio</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="{% url 'app_reservation:reservation_list' %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Reservas
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="{% url 'app_reservation:reservation_list' %}">Listado de Reservas</a></li>
+            <li><a class="dropdown-item" href="{% url 'app_reservation:reservation_create' %}">Nueva Reserva</a></li>
           </ul>
         </li>
                 <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="{% url 'app_clients:clients_list' %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Clientes
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="{% url 'app_clients:clients_list' %}">Listado de Clientes</a></li>
+            <li><a class="dropdown-item" href="{% url 'app_clients:clients_create' %}">Nuevo Cliente</a></li>
           </ul>
         </li>
                 <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="{% url 'employees_app:employee_list' %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Empleados
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="{% url 'employees_app:employee_list' %}">Lista de Empleados</a></li>
+            <li><a class="dropdown-item" href="{% url 'employees_app:employee_create' %}">Agregar Empleado</a></li>
           </ul>
         </li>
                 <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="{% url 'app_coordinators:coordinators_list' %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Coordinadores
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="{% url 'app_coordinators:coordinators_list' %}">Lista de Coordinadores</a></li>
+            <li><a class="dropdown-item" href="{% url 'app_coordinators:coordinator_create' %}">Agregar Coordinador</a></li>
           </ul>
         </li>
     </div>
