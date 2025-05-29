@@ -3,7 +3,7 @@
   <h1>{{ coordinator.first_name }} {{ coordinator.last_name }}</h1>
   <p><strong>Email:</strong> {{ coordinator.email }}</p>
   <p><strong>Teléfono:</strong> {{ coordinator.phone }}</p>
-  <p><strong>Activo:</strong> {{ coordinator.active|yesno:"Sí,No" }}</p>
+  <p><strong>Activo:</strong> {{ coordinator.is_active|yesno:"Sí,No" }}</p>
   <a href="{% url 'app_coordinators:coordinator_update' coordinator.pk %}">Editar</a>
   <a href="{% url 'app_coordinators:coordinator_deactivate' coordinator.pk %}">Dar de baja</a>
   <a href="{% url 'app_coordinators:coordinators_list' %}">← Volver a la lista</a>

@@ -5,25 +5,24 @@ from app_services.models import Service
 from employees_app.models import Employee
 from rest_framework.serializers import ModelSerializer
 
+
 class ClientSerializer(ModelSerializer):
     class Meta:
         model = Clients
         fields = '__all__'
+
 
 class CoordinatorSerializer(ModelSerializer):
     class Meta:
         model = Coordinator
         fields = '__all__'
 
-class ReservationSerializer(ModelSerializer):
-    class Meta:
-        model = Reservation
-        fields = '__all__'
 
 class ServiceSerializer(ModelSerializer):
     class Meta:
         model = Service
         fields = '__all__'
+
 
 class EmployeeSerializer(ModelSerializer):
     class Meta:
@@ -31,3 +30,12 @@ class EmployeeSerializer(ModelSerializer):
         fields = '__all__'
 
 
+class ReservationSerializer(ModelSerializer):
+    client = ClientSerializer(read_only=True)
+    service = ServiceSerializer(read_only=True)
+    employee = EmployeeSerializer(read_only=True)
+    coordinator = CoordinatorSerializer(read_only=True)
+
+    class Meta:
+        model = Reservation
+        fields = '__all__'
