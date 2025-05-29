@@ -21,7 +21,7 @@ class ServiceListView(ListView):
     model = Service
     template_name = 'app_services/services_list.html'
     context_object_name = 'services'
-    paginate_by = 10 # Number of services per page
+    paginate_by = 10
     ordering = ['name']
 
     def get_queryset(self):
@@ -36,10 +36,9 @@ class ServiceUpdateView(UpdateView):
     context_object_name = 'service'
 
 
-# Logic to handle the deletion of a service
 class ServiceDesactivateView(UpdateView):
     model = Service
-    fields = [] # No fields to display
+    fields = []
     template_name = 'app_services/service_desactivate.html'
     success_url = reverse_lazy('app_services:services_list') 
     

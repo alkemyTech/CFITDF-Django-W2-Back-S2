@@ -23,3 +23,14 @@ class ServiceDetailAPIView(RetrieveAPIView):
     queryset = Service.objects.all()
     serializer_class = ServiceSerializer
     lookup_field = 'pk'
+
+
+class ReservationListAPIView(ListAPIView):
+    queryset = Reservation.objects.all().filter(active=True)
+    serializer_class = ReservationSerializer
+
+
+class ReservationDetailAPIView(RetrieveAPIView):
+    queryset = Reservation.objects.all().filter(active=True)
+    serializer_class = ReservationSerializer
+    lookup_field = 'pk'

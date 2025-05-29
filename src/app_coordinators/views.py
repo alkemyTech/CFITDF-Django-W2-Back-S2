@@ -39,6 +39,6 @@ class CoordinatorDeactivateView(UpdateView):
     success_url = reverse_lazy('app_coordinators:coordinators_list')
 
     def form_valid(self, form):
-        form.instance.active = False
+        form.instance.is_active = False
         form.instance.save()
         return super().form_valid(form)
