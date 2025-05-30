@@ -34,6 +34,10 @@ class ClientsUpdateView(UpdateView):
 
 def delete_client(request, pk):
     client_to_delete = get_object_or_404(Clients, pk=pk)
-    client_to_delete.active = not client_to_delete.active
-    client_to_delete.save()
-    return HttpResponseRedirect(reverse('app_clients:clients_list'))
+
+    if request.method == 'POST':
+        client_to_delete.active = not client_to_delete.active
+        client_to_delete.save()
+        return HttpResponseRedirect(reverse('app_clients:clients_list'))
+
+    return render(request, 'app_clients/clients_confirm_delete.html', {'client': client_to_delete})
