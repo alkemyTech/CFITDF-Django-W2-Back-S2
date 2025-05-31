@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle del Empleado</title>
+</head>
+<body>
+    <h1>Detalle del Empleado</h1>
+
+    <p><strong>Nombre:</strong> {{ employee.first_name }}</p>
+    <p><strong>Apellido:</strong> {{ employee.last_name }}</p>
+    <p><strong>Email:</strong> {{ employee.email }}</p>
+    <p><strong>Activo:</strong> {{ employee.is_active|yesno:"Sí,No" }}</p>
+    <p><strong>Legajo:</strong> {{ employee.file_number }}</p>
+    <p><strong>Telefono:</strong> {{ employee.phone }}</p>
+
+    <a href="{% url 'employees_app:employee_list' %}"> ← Volver a la lista</a>
+    <a href="{% url 'employees_app:employee_update' employee.pk %}"> ✏️ Editar</a>
+    {% if employee.is_active %}
+        <a href="{% url 'employees_app:employee_deactivate' employee.pk %}"> ❌ Dar de baja</a>
+    {% endif %}
+</body>
+{% endblock %}

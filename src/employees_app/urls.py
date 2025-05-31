@@ -1,10 +1,23 @@
 from django.urls import path
-from . import views
+from .views import (
+    EmployeeListView,
+    EmployeeCreateView,
+    EmployeeUpdateView,
+    EmployeeDeactivateView,
+    EmployeeDetailView,
+    EmployeeListActiveView
+)
 
 app_name = 'employees_app'
 
 urlpatterns = [
-    path('listar/', views.employee_list, name='employee_list'),
-    path('crear/', views.employee_create, name='employee_create'),
-    path('editar/<int:pk>/', views.employee_update, name='employee_update'),
+    
+    path('', EmployeeListView.as_view(), name='employee_list'), 
+    path('activos/', EmployeeListActiveView.as_view(), name='employee_list_activo'),
+    path('create/', EmployeeCreateView.as_view(), name='employee_create'),
+    path('update/<int:pk>/', EmployeeUpdateView.as_view(), name='employee_update'),
+    path('employee/<int:pk>/deactivate/', EmployeeDeactivateView.as_view(), name='employee_deactivate'),
+    path('detail/<int:pk>/', EmployeeDetailView.as_view(), name='employee_detail'),
+
 ]
+
