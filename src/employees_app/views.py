@@ -32,13 +32,13 @@ class EmployeeUpdateView(UpdateView):
     model = Employee
     form_class = EmployeeForm
     template_name = 'employees_app/employee_form.html'
-    success_url = reverse_lazy('employees_app:employee_list')
+    success_url = reverse_lazy('employees_app:employee_list_activo')
 
 class EmployeeDeactivateView(UpdateView):
     model = Employee
     fields = [] 
     template_name = 'employees_app/employee_desactivate.html'
-    success_url = reverse_lazy('employees_app:employee_list')
+    success_url = reverse_lazy('employees_app:employee_list_activo')
 
     def form_valid(self, form):
         form.instance.active = False

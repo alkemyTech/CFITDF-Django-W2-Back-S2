@@ -10,6 +10,7 @@
         <th>Activo</th>
         <th>Acciones</th>
         <th>Acciones</th>
+        <th>Acciones</th>
     </tr>
     
     {% for emp in employees  %}
@@ -20,6 +21,7 @@
         <td>{{ emp.is_active }}</td>
         <td><a href="{% url 'employees_app:employee_update' emp.id %}">Editar</a></td>
         <td><a href="{% url 'employees_app:employee_deactivate' emp.id %}">Eliminar</a></td>
+        <td><a href="{% url 'employees_app:employee_detail' emp.id %}">detalle</a></td>
     </tr>
     {% endfor %}
     
