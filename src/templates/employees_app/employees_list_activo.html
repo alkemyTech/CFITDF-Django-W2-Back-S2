@@ -1,7 +1,8 @@
 {% extends "base.html"%}
 {% block content %}
 <h1>Lista de Empleados</h1>
-<a href="{% url 'employees_app:employee_create' %}"> Crear nuevo empleado</a>
+
+
 <table border="1">
     <tr>
         <th>Nombre</th>
@@ -9,7 +10,7 @@
         <th>Teléfono</th>
         <th>Activo</th>
         <th>Acciones</th>
-        <th>Acciones</th>
+        <th>accion</th>
     </tr>
     
     {% for emp in employees  %}
@@ -18,8 +19,7 @@
         <td>{{ emp.email }}</td>
         <td>{{ emp.phone }}</td>
         <td>{{ emp.is_active }}</td>
-        <td><a href="{% url 'employees_app:employee_update' emp.id %}">Editar</a></td>
-        <td><a href="{% url 'employees_app:employee_deactivate' emp.id %}">Eliminar</a></td>
+   
     </tr>
     {% endfor %}
     

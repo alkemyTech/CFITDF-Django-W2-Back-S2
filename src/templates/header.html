@@ -51,8 +51,9 @@
             Empleados
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{% url 'employees_app:employee_list' %}">Lista de Empleados</a></li>
-            <li><a class="dropdown-item" href="{% url 'employees_app:employee_create' %}">Agregar Empleado</a></li>
+            <li><a class="dropdown-item" href="create">Crear</a></li>
+            <li><a class="dropdown-item" href="{% url 'employees_app:employee_list' %}">Editar empleados</a></li> 
+            <li><a class="dropdown-item" href="{% url 'employees_app:employee_list_activo' %}">Ver empleados</a></li>
           </ul>
         </li>
                 <li class="nav-item dropdown">
