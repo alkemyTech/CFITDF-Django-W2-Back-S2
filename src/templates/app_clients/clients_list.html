@@ -1,24 +1,39 @@
-{% extends 'base.html' %}
-{% block content %} 
-    <table>
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Active</th>
-            </tr>
-        </thead>   
-        <tbody>
-            {% for client in clients %}
-            <tr>
-                <td>{{client.id}}</td>
-                <td>{{client.first_name}}</td>
-                <td>{{client.last_name}}</td>
-                <td>{{client.active|yesno:"Sí,No"}}</td>
-                <td><a href="{% url 'app_clients:clients_delete' client.id %}">Delete</a></td>
-                <td><a href="{% url 'app_clients:clients_detail' client.id %}">Detail</a></td>
-            {% endfor %}
-        </tbody> 
-    </table>
+{% extends 'base.html' %} {% block content %}
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="mb-0">Listado de Clientes</h1>
+    <a class="btn btn-primary" href="{% url 'app_coordinators:coordinator_create' %}">Crear nuevo coordinador</a>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered align-middle">
+      <thead class="table-dark">
+        <tr>
+      <th>id</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Activo</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for client in clients %}
+    <tr>
+      <td>{{client.id}}</td>
+      <td>{{client.first_name}}</td>
+      <td>{{client.last_name}}</td>
+      <td>{{client.active|yesno:"Sí,No"}}</td>
+      <td>
+        <a href="{% url 'app_clients:clients_detail' client.id %}"
+          ><button type="button" class="btn btn-primary">Detalle</button></a
+        >
+        <a href="{% url 'app_clients:clients_update' client.id %}"
+          ><button type="button" class="btn btn-success">Editar</button></a
+       <a href="{% url 'app_clients:clients_delete' client.id %}"
+          ><butto type="button" class="btn btn-danger">Eliminar</butto></a
+        >
+      </td>
+      {% endfor %}
+    </tr>
+  </tbody>
+</table>
+    </div>
 {% endblock %}
