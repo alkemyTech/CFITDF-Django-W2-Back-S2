@@ -1,16 +1,52 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>Lista de Coordinadores</h1>
-  <a href="{% url 'app_coordinators:coordinator_create' %}">Crear nuevo coordinador</a>
-  <ul>
-    {% for coordinator in coordinators %}
-      <li>
-        <a href="{% url 'app_coordinators:coordinator_detail' coordinator.pk %}">
-          {{ coordinator.last_name }}, {{ coordinator.first_name }}
-        </a>
-      </li>
-    {% empty %}
-      <li>No hay coordinadores registrados.</li>
-    {% endfor %}
-  </ul>
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="mb-0">Listado de Coordinadores</h1>
+    <a class="btn btn-primary" href="{% url 'app_coordinators:coordinator_create' %}">Crear nuevo coordinador</a>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered align-middle">
+      <thead class="table-dark">
+        <tr>
+          <th>Apellido</th>
+          <th>Nombre</th>
+          <th>N° Legajo</th>
+          <th>N° Documento</th>
+          <th>Email</th>
+          <th>Teléfono</th>
+          <th>Activo</th>
+          <th>Fecha de Baja</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for coordinator in coordinators %}
+          <tr>
+            <td>{{ coordinator.last_name }}</td>
+            <td>{{ coordinator.first_name }}</td>
+            <td>{{ coordinator.file_number }}</td>
+            <td>{{ coordinator.document_number }}</td>
+            <td>{{ coordinator.email }}</td>
+            <td>{{ coordinator.phone }}</td>
+            <td>
+              {% if coordinator.is_active %}
+                <span class="badge bg-success">Sí</span>
+              {% else %}
+                <span class="badge bg-secondary">No</span>
+              {% endif %}
+            </td>
+            <td>{{ coordinator.discharge_date|default:"-" }}</td>
+            <td>
+              <a class="btn btn-sm btn-primary" href="{% url 'app_coordinators:coordinator_detail' coordinator.pk %}">Ver</a>
+              <a class="btn btn-sm btn-success" href="{% url 'app_coordinators:coordinator_update' coordinator.pk %}">Editar</a>
+              <a class="btn btn-sm btn-danger" href="{% url 'app_coordinators:coordinator_deactivate' coordinator.pk %}">Eliminar</a>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="9" class="text-center">No hay coordinadores registrados.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 {% endblock %}
