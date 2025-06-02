@@ -16,8 +16,6 @@
         <th>Fecha Inicio</th>
         <th>Fecha Fin</th>
         <th>Servicio</th>
-        <th>Empleado</th>
-        <th>Coordinador</th>
         <th>Estado</th>
         <th>Acciones</th>
       </tr>
@@ -30,8 +28,6 @@
         <td>{{ reservation.reservation_date }}</td>
         <td>{{ reservation.service_date }}</td>
         <td>{{ reservation.service }}</td>
-        <td>{{ reservation.employee }}</td>
-        <td>{{ reservation.coordinator }}</td>
         <td>
           {% if reservation.active %}
           <span class="badge bg-success">Activa</span>
