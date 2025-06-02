@@ -6,35 +6,65 @@ from employees_app.models import Employee
 from rest_framework.serializers import ModelSerializer
 
 
-class ClientSerializer(ModelSerializer):
+class ClientsListSerializer(ModelSerializer):
     class Meta:
         model = Clients
-        fields = '__all__'
+        fields = ['id', 'first_name', 'last_name']
 
 
-class CoordinatorSerializer(ModelSerializer):
+class ClientsDetailSerializer(ModelSerializer):
+    class Meta:
+        model = Clients
+        fields = ['id', 'first_name', 'last_name', 'email', 'phone', 'active']
+
+
+class CoordinatorsListSerializer(ModelSerializer):
     class Meta:
         model = Coordinator
-        fields = '__all__'
+        fields = ['id', 'first_name', 'last_name']
 
 
-class ServiceSerializer(ModelSerializer):
+class CoordinatorsDetailSerializer(ModelSerializer):
     class Meta:
-        model = Service
-        fields = '__all__'
+        model = Coordinator
+        fields = ['id', 'first_name', 'last_name', 'email', 'phone', 'is_active']
 
 
-class EmployeeSerializer(ModelSerializer):
+class EmployeesListSerializer(ModelSerializer):
     class Meta:
         model = Employee
-        fields = '__all__'
+        fields = ['pk', 'first_name', 'last_name']
 
 
-class ReservationSerializer(ModelSerializer):
-    client = ClientSerializer(read_only=True)
-    service = ServiceSerializer(read_only=True)
-    employee = EmployeeSerializer(read_only=True)
-    coordinator = CoordinatorSerializer(read_only=True)
+class EmployeesDetailSerializer(ModelSerializer):
+    class Meta:
+        model = Employee
+        fields = ['pk', 'first_name', 'last_name', 'is_active', 'email', 'phone']
+
+
+class ServicesListSerializer(ModelSerializer):
+    class Meta:
+        model = Service
+        fields = ['pk', 'name']
+
+
+class ServicesDetailSerializer(ModelSerializer):
+    class Meta:
+        model = Service
+        fields = ['pk', 'name', 'description', 'price', 'active']
+
+
+class ReservationListSerializer(ModelSerializer):
+    class Meta:
+        model = Reservation
+        fields = ['id', 'client', 'service', 'employee', 'coordinator', 'reservation_date', 'service_date']
+
+
+class ReservationDetailSerializer(ModelSerializer):
+    client = ClientsListSerializer(read_only=True)
+    service = ServicesListSerializer(read_only=True)
+    employee = EmployeesListSerializer(read_only=True)
+    coordinator = CoordinatorsListSerializer(read_only=True)
 
     class Meta:
         model = Reservation
