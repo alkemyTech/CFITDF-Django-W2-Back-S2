@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>¿Está seguro que desea dar de baja al cliente?</h2>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirmar</button>
+    <a href="{% url 'app_clients:clients_list' %}">Cancelar</a>
+  </form>
+{% endblock %}
