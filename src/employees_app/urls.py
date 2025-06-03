@@ -18,6 +18,9 @@ urlpatterns = [
     path('update/<int:pk>/', EmployeeUpdateView.as_view(), name='employee_update'),
     path('employee/<int:pk>/deactivate/', EmployeeDeactivateView.as_view(), name='employee_deactivate'),
     path('detail/<int:pk>/', EmployeeDetailView.as_view(), name='employee_detail'),
+    path('empleado/baja/<int:pk>/', EmployeeDeactivateView.as_view(), name='employee_deactivate'),
+
+
 
 ]
 
