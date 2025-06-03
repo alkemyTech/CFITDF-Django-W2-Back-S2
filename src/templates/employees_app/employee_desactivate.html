@@ -5,6 +5,6 @@
 <form method="post">
     {% csrf_token %}
     <button type="submit">Sí, estoy seguro</button>
-    <a href="{% url 'employees_app:employee_list' %}">Cancelar</a>
+    <a href="{% url 'employees_app:employee_list_activo' %}" class="btn btn-secondary">Cancelar</a>
 </form>
 {% endblock %}
