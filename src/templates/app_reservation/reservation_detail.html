@@ -1,14 +1,35 @@
-{% extends "base.html" %} {% block content %}
-<h1>Detalle de la Reserva</h1>
-<div class="container">
-  <p><strong>ID:</strong> {{ reservation.id }}</p>
-  <p>
-    <strong>Cliente:</strong> {{ reservation.client }}  </p>
-  <p><strong>Fecha de Reserva:</strong> {{ reservation.reservation_date }}</p>
-  <p><strong>Fecha de Servicio:</strong> {{ reservation.service_date }}</p>
-  <p><strong>Servicio:</strong> {{ reservation.service }}</p>
-  <p><strong>Coordinador:</strong> {{ reservation.employee }}</p>
-  <p><strong>Empleado:</strong> {{ reservation.coordinator }}</p>
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-4">
+  <h2 class="mb-4">Detalle de la Reserva</h2>
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <dl class="row">
+        <dt class="col-sm-4">ID:</dt>
+        <dd class="col-sm-8">{{ reservation.id }}</dd>
+
+        <dt class="col-sm-4">Cliente:</dt>
+        <dd class="col-sm-8">{{ reservation.client }}</dd>
+
+        <dt class="col-sm-4">Fecha de Reserva:</dt>
+        <dd class="col-sm-8">{{ reservation.reservation_date }}</dd>
+
+        <dt class="col-sm-4">Fecha de Servicio:</dt>
+        <dd class="col-sm-8">{{ reservation.service_date }}</dd>
+
+        <dt class="col-sm-4">Servicio:</dt>
+        <dd class="col-sm-8">{{ reservation.service }}</dd>
+
+        <dt class="col-sm-4">Coordinador:</dt>
+        <dd class="col-sm-8">{{ reservation.coordinator }}</dd>
+
+        <dt class="col-sm-4">Empleado:</dt>
+        <dd class="col-sm-8">{{ reservation.employee }}</dd>
+      </dl>
+    </div>
+    <div class="card-footer text-end">
+      <a href="{% url 'app_reservation:reservation_list' %}" class="btn btn-secondary">Volver al listado</a>
+    </div>
+  </div>
 </div>
-<a href="{% url 'app_reservation:reservation_list' %}">Volver al listado</a>
 {% endblock %}

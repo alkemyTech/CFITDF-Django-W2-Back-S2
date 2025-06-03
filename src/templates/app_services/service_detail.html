@@ -1,10 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>{{ service.name }}</h1>
-  <p>{{ service.description }}</p>
-  <p>Precio: ${{ service.price }}</p>
-  <p>Activo: {{ service.active|yesno:"Sí,No" }}</p>
-  <a href="{% url "app_services:service_update" service.pk%}">Editar</a>
-  <a href="{% url "app_services:service_desactivate" service.pk%}">Eliminar</a>
-  <a href="{% url "app_services:services_list" %}">Volver al listado</a>
+<div class="container py-4">
+  <div class="card shadow-sm">
+    <div class="card-header">
+      <h2 class="mb-0">{{ service.name }}</h2>
+    </div>
+    <div class="card-body">
+      <p><strong>Descripción:</strong> {{ service.description }}</p>
+      <p><strong>Precio:</strong> ${{ service.price }}</p>
+      <p><strong>Activo:</strong> {{ service.active|yesno:"Sí,No" }}</p>
+    </div>
+    <div class="card-footer d-flex justify-content-between">
+      <div>
+        <a href="{% url 'app_services:service_update' service.pk %}" class="btn btn-primary btn-sm">Editar</a>
+        <a href="{% url 'app_services:service_desactivate' service.pk %}" class="btn btn-danger btn-sm">Dar de baja</a>
+      </div>
+      <a href="{% url 'app_services:services_list' %}" class="btn btn-secondary btn-sm">Volver al listado</a>
+    </div>
+  </div>
+</div>
 {% endblock %}

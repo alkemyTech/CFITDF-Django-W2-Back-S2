@@ -1,8 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
-  <h1>{{ client.first_name }} {{ client.last_name}}</h1>
-  <p>Email: {{ client.email }}</p>
-  <p>Phone: {{ client.phone }}</p>
-  <p>Active: {{ client.active|yesno:"Sí,No" }}</p>
-  <a href="{% url 'app_clients:clients_list' %}">Volver al listado</a>
+<div class="container py-4">
+  <div class="card shadow-sm">
+    <div class="card-header">
+      <h2 class="mb-0">{{ client.first_name }} {{ client.last_name }}</h2>
+    </div>
+    <div class="card-body">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>Email:</strong> {{ client.email }}</li>
+        <li class="list-group-item"><strong>Teléfono:</strong> {{ client.phone }}</li>
+        <li class="list-group-item"><strong>Activo:</strong> {{ client.active|yesno:"Sí,No" }}</li>
+        <li class="list-group-item"><strong>Fecha de creación:</strong> {{ client.created_at|date:"d/m/Y H:i" }}</li>
+      </ul>
+    </div>
+    <div class="card-footer d-flex justify-content-between">
+      <div>
+        <a href="{% url 'app_clients:clients_update' client.pk %}" class="btn btn-primary btn-sm">Editar</a>
+        <a href="{% url 'app_clients:clients_delete' client.pk %}" class="btn btn-danger btn-sm">Dar de baja</a>
+      </div>
+      <a href="{% url 'app_clients:clients_list' %}" class="btn btn-secondary btn-sm">Volver al listado</a>
+    </div>
+  </div>
+</div>
 {% endblock %}
