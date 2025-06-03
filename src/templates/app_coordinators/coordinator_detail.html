@@ -1,10 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>{{ coordinator.first_name }} {{ coordinator.last_name }}</h1>
-  <p><strong>Email:</strong> {{ coordinator.email }}</p>
-  <p><strong>Teléfono:</strong> {{ coordinator.phone }}</p>
-  <p><strong>Activo:</strong> {{ coordinator.is_active|yesno:"Sí,No" }}</p>
-  <a href="{% url 'app_coordinators:coordinator_update' coordinator.pk %}">Editar</a>
-  <a href="{% url 'app_coordinators:coordinator_deactivate' coordinator.pk %}">Dar de baja</a>
-  <a href="{% url 'app_coordinators:coordinators_list' %}">← Volver a la lista</a>
+<div class="container py-4">
+  <div class="card shadow-sm">
+    <div class="card-header">
+      <h2 class="mb-0">{{ coordinator.first_name }} {{ coordinator.last_name }}</h2>
+    </div>
+    <div class="card-body">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>DNI:</strong> {{ coordinator.document_number }}</li>
+        <li class="list-group-item"><strong>Email:</strong> {{ coordinator.email }}</li>
+        <li class="list-group-item"><strong>Teléfono:</strong> {{ coordinator.phone }}</li>
+        <li class="list-group-item"><strong>Activo:</strong> {{ coordinator.is_active|yesno:"Sí,No" }}</li>
+      </ul>
+    </div>
+    <div class="card-footer d-flex justify-content-between">
+      <div>
+        <a href="{% url 'app_coordinators:coordinator_update' coordinator.pk %}" class="btn btn-primary btn-sm">Editar</a>
+        <a href="{% url 'app_coordinators:coordinator_deactivate' coordinator.pk %}" class="btn btn-danger btn-sm">Dar de baja</a>
+      </div>
+      <a href="{% url 'app_coordinators:coordinators_list' %}" class="btn btn-secondary btn-sm">Volver al listado</a>
+    </div>
+  </div>
+</div>
 {% endblock %}
