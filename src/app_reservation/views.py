@@ -2,12 +2,13 @@ from django.shortcuts import render
 from django.views.generic import CreateView, ListView, UpdateView, DetailView
 from django.urls import reverse_lazy
 from .models import Reservation
+from .forms import ReservationForm
 
 
 class ReservationCreateView(CreateView):
     model = Reservation
+    form_class = ReservationForm
     template_name = 'app_reservation/reservation_form.html'
-    fields = '__all__'
     success_url = reverse_lazy('app_reservation:reservation_list')
 
 
@@ -18,6 +19,7 @@ class ReservationListView(ListView):
     ordering = ['-service_date']
     paginate_by = 10
 
+
 class ReservationDetailView(DetailView):
     model = Reservation
     template_name = 'app_reservation/reservation_detail.html'
@@ -26,8 +28,8 @@ class ReservationDetailView(DetailView):
 
 class ReservationUpdateView(UpdateView):
     model = Reservation
+    form_class = ReservationForm
     template_name = 'app_reservation/reservation_form.html'
-    fields = '__all__'
     success_url = reverse_lazy('app_reservation:reservation_list')
 
     def get_object(self, queryset=None):

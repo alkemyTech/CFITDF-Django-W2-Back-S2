@@ -1,11 +1,11 @@
 from django import forms
-from .models import Employee
+from .models import Clients
 
 
-class EmployeeForm(forms.ModelForm):
+class ClientsForm(forms.ModelForm):
     class Meta:
-        model = Employee
-        fields = '__all__'
+        model = Clients
+        fields = ['first_name', 'last_name', 'email', 'phone', 'active']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
