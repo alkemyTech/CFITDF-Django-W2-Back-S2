@@ -1,10 +1,10 @@
 from django import forms
-from .models import Employee
+from .models import Coordinator
 
 
-class EmployeeForm(forms.ModelForm):
+class CoordinatorsForm(forms.ModelForm):
     class Meta:
-        model = Employee
+        model = Coordinator
         fields = '__all__'
 
     def __init__(self, *args, **kwargs):

@@ -1,11 +1,17 @@
 from django import forms
-from .models import Employee
+from .models import Reservation
 
 
-class EmployeeForm(forms.ModelForm):
+class ReservationForm(forms.ModelForm):
     class Meta:
-        model = Employee
+        model = Reservation
         fields = '__all__'
+        widgets = {
+            'service_date': forms.DateTimeInput(attrs={
+                'type': 'datetime-local',
+                'class': 'form-control form-control-lg'
+            })
+        }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

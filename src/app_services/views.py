@@ -2,13 +2,14 @@ from django.shortcuts import render
 from django.views.generic import CreateView, DetailView, ListView, UpdateView
 from django.urls import reverse_lazy
 from .models import Service
+from .forms import ServicesForm
 
 
 class ServiceCreateView(CreateView):
     model = Service
+    form_class = ServicesForm
     template_name = 'app_services/service_form.html'
-    fields = ['name', 'description', 'price']
-    success_url = reverse_lazy('app_services:services_list') 
+    success_url = reverse_lazy('app_services:services_list')
 
 
 class ServiceDetailView(DetailView):
@@ -30,9 +31,9 @@ class ServiceListView(ListView):
 
 class ServiceUpdateView(UpdateView):
     model = Service
+    form_class = ServicesForm
     template_name = 'app_services/service_form.html'
-    fields = ['name', 'description', 'price']
-    success_url = reverse_lazy('app_services:services_list') 
+    success_url = reverse_lazy('app_services:services_list')
     context_object_name = 'service'
 
 
@@ -40,10 +41,9 @@ class ServiceDesactivateView(UpdateView):
     model = Service
     fields = []
     template_name = 'app_services/service_desactivate.html'
-    success_url = reverse_lazy('app_services:services_list') 
-    
+    success_url = reverse_lazy('app_services:services_list')
+
     def form_valid(self, form):
         form.instance.active = False
         form.instance.save()
         return super().form_valid(form)
-    

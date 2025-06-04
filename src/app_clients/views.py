@@ -3,12 +3,13 @@ from django.views.generic import CreateView, DetailView, ListView, UpdateView
 from django.http import HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 from .models import Clients
+from .forms import ClientsForm
 
 
 class ClientsCreateView(CreateView):
     model = Clients
+    form_class = ClientsForm
     template_name = 'app_clients/clients_form.html'
-    fields = '__all__'
     success_url = reverse_lazy('app_clients:clients_list')
 
 
@@ -27,8 +28,8 @@ class ClientsListView(ListView):
 
 class ClientsUpdateView(UpdateView):
     model = Clients
+    form_class = ClientsForm
     template_name = 'app_clients/clients_form.html'
-    fields = '__all__'
     success_url = reverse_lazy('app_clients:clients_list')
 
 

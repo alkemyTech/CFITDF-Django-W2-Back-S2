@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.urls import reverse_lazy
 from .models import Coordinator
+from .forms import CoordinatorsForm
 
 
 class CoordinatorListView(ListView):
@@ -20,15 +21,15 @@ class CoordinatorDetailView(DetailView):
 
 class CoordinatorCreateView(CreateView):
     model = Coordinator
+    form_class = CoordinatorsForm
     template_name = 'app_coordinators/coordinators_form.html'
-    fields = ['first_name', 'last_name', 'document_number', 'email', 'phone', 'file_number', 'is_active']
     success_url = reverse_lazy('app_coordinators:coordinators_list')
 
 
 class CoordinatorUpdateView(UpdateView):
     model = Coordinator
+    form_class = CoordinatorsForm
     template_name = 'app_coordinators/coordinators_form.html'
-    fields = ['first_name', 'last_name', 'document_number', 'email', 'phone', 'file_number', 'is_active']
     success_url = reverse_lazy('app_coordinators:coordinators_list')
 
 
