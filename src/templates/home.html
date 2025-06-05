@@ -1,32 +1,37 @@
 {% extends "base.html" %} {% load static %} {% block title %}Home{% endblock %}
 {% block content %}
+<style>
+  .img-shadow {
+    filter: drop-shadow(0 0 16px #8888);
+  }
+</style>
 <h1>Bienvenido a nuestro portal de Eventos</h1>
 <div class="text-center my-4">
   <img
     src="{% static 'img/disco_ball.webp' %}"
     alt="disco ball"
-    class="img-fluid"
+    class="img-fluid img-shadow"
     width="240"
     height="240"
   />
   <img
     src="{% static 'img/carnival.webp' %}"
     alt="carnaval"
-    class="img-fluid"
+    class="img-fluid img-shadow"
     width="240"
     height="240"
   />
   <img
     src="{% static 'img/quince.webp' %}"
     alt="quinceañera"
-    class="img-fluid"
+    class="img-fluid img-shadow"
     width="240"
     height="240"
   />
   <img
     src="{% static 'img/new_year.webp' %}"
     alt="año nuevo"
-    class="img-fluid"
+    class="img-fluid img-shadow"
     width="240"
     height="240"
   />
