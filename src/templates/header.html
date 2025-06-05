@@ -1,9 +1,17 @@
 {% load static %}
+<style>
+  .img-shadow {
+    filter: drop-shadow(0 0 16px #8888);
+  }
+</style>
 <header>
   <div class="navbar navbar-header navbar-expand-lg bg-body-tertiary justify-content-center align-items-center d-flex">
-    <img src="{% static 'img/house_party.webp' %}" alt="Header" width="120" height="120" class="d-inline-block align-text-top mx-3">
-    <h1 class="mb-0 mx-3">Eventos y Servicios</h1>
-    <img src="{% static 'img/party_card.webp' %}" alt="Header" width="120" height="120" class="d-inline-block align-text-top mx-3">
+    <img src="{% static 'img/house_party.webp' %}" alt="Header" width="120" height="120" class="d-inline-block align-text-top mx-5 img-shadow">
+    <div class="d-flex flex-column align-items-center mx-5">
+      <h1 class="display-3 fw-bold" style="text-shadow: 2px 2px 8px #bdbdbd;">EVENTIA</h1>
+      <h3 class="text-body-secondary">Reservas y Servicios</h3>
+    </div>
+    <img src="{% static 'img/party_card.webp' %}" alt="Header" width="120" height="120" class="d-inline-block align-text-top mx-5 img-shadow">
   </div>
 </header>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
